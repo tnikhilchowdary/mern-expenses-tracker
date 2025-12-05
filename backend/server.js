@@ -1,4 +1,5 @@
 import {connectDb} from "../backend/config/db.js";
+import userRouter from "../backend/routes/authRoutes.js";
 import express from "express";
 import dotenv from "dotenv";
 
@@ -6,6 +7,7 @@ dotenv.config();
 const app = express();
 connectDb();
 app.use(express.json());
+app.use("/users", userRouter);
 
 const PORT = process.env.PORT || 5000;
 
